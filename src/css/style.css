@@ -1,0 +1,517 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+body{ 
+    width: 100%;
+    height: 100hv;
+    
+    background: #6e8681; /* Для браузеров, которые не поддерживают градиенты */
+    background: -webkit-radial-gradient(#4CCEB2, #1976bd); /* Для Opera 11.1 - 12.0 */
+    background: -o-radial-gradient(#4CCEB2, #2F8FD8); /* Для Opera 11.1 - 12.0 */
+    background: -moz-radial-gradient(#4CCEB2, #2F8FD8); /* Для Firefox 3.6 - 15 */
+    background: radial-gradient(#4CCEB2, #0e293d); /* Стандартный синтаксис */ */
+}
+
+.wrapper {
+    max-width: 1200px;
+    display: flex;
+    margin: 0 auto;
+}
+
+
+/* ========== HEADER ==========  */
+
+header.wrapper,
+footer.wrapper{
+    background-color: #210f0f73;
+}
+
+/* BURGER */
+
+.burger {
+    margin: 15px 15px 15px 45px;
+}
+
+.burger-wrapper {
+    margin: 20px;
+}
+
+.burger-item {
+    z-index: 20;
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+}
+
+.burger-item span {
+    position: absolute;
+    background-color: hotpink;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    top: 8px;
+
+    transition: all 0.3s ease;
+}
+
+.burger-item:before,
+.burger-item:after {
+    content: '';
+    background-color: hotpink;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+
+    transition: all 0.3s ease;
+}
+
+.burger-item:before {
+    top: 18px;
+}
+.burger-item:after {
+    bottom: 18px;
+}
+
+.burger-item.active span {
+    transform: scale(0);    
+}
+
+.burger-item.active:before {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+.burger-item.active:after {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+.active-list {
+    color: black;
+}
+
+.header-menu {
+    z-index: 15;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+    background-color: indigo;
+
+    transition: all 0.3s ease-in 0.1s;
+}
+
+.header-menu.active {
+    top: 0;  
+}
+
+.header-list {
+    display: flex;
+    top: 20px;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px;
+
+    font-family:  Nerko One;
+    font-size: 3rem;
+    font-weight: 500;
+    color: azure;
+
+
+    
+}
+
+.header-link {
+    display: flex;
+    list-style-type: none;
+}
+
+
+.logo {
+    margin: auto;
+    color: azure;
+    font-family: Nerko One;
+    font-size: larger; 
+    font-size: 3.8rem;
+
+}
+
+.play {
+    margin: 30px 30px;
+}
+
+/* Source  https://codeconvey.com/convert-checkbox-to-toggle-button-css/ */
+/* Toggle Button */
+.cm-toggle {
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	position: relative;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+    font-weight: bold;
+}
+/* To create surface of toggle button */
+.cm-toggle:after {
+    content: 'train';
+    font-size: 1.2rem;
+    padding-left: 37px;
+	width: 85px;
+	height: 32px;
+    display: inline-block;
+    background: #16a085;
+	border-radius: 18px;
+	clear: both;
+}
+/* Contents before checkbox to create toggle handle */
+.cm-toggle:before {   
+    content: '';
+	width: 33px;
+	height: 33px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: -1px;
+	border-radius: 50%;
+	background: rgb(255, 255, 255);
+	box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.6);
+}
+/* Shift the handle to left on check event */
+.cm-toggle:checked:before {
+	left: 57px;
+	box-shadow: -2px 1px 3px rgba(0, 0, 0, 0.6);
+}
+/* Background color when toggle button will be active */
+.cm-toggle:checked:after {
+    padding-left: 10px;
+  
+    margin: auto 0;
+
+    content: 'play';
+    background: rgba(230, 27, 27, 0.884);
+
+}
+
+/* Transition for smoothness */
+.cm-toggle,
+.cm-toggle:before,
+.cm-toggle:after,
+.cm-toggle:checked:before,
+.cm-toggle:checked:after {
+	transition: ease .3s;
+	-webkit-transition: ease .3s;
+	-moz-transition: ease .3s;
+	-o-transition: ease .3s;
+}
+
+/* ========== MAIN CARD ==========  */
+
+.main-content,
+.main-content-table {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    flex-wrap:wrap;
+    justify-content: center;
+   
+}
+.main-content-box {
+    display: flex;
+    justify-content: center;  
+    width: 250px;
+    height: 250px;
+    background: #3e3350f1;
+    margin: 20px;
+    border-radius: 50%;
+    perspective: 400px;
+
+    position: relative;
+}
+
+.main-content-box span {
+    position: absolute;
+    display: block;
+    font-family: Nerko One, Balsamiq Sans;
+    font-size: 3rem;
+    padding-top: 185px;
+    padding-left: 26px;
+    color: rgb(233, 240, 233);
+}
+
+
+.name-category {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-family: Nerko One;
+    color: cornsilk;
+    font-size: 3.5rem;
+}
+
+
+/* =========== CARD =========== */
+
+.name-category {
+    position: absolute;
+}
+
+.front, 
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s ease-out;
+    backface-visibility: hidden;
+    border-radius: 50%;
+}
+
+.front {
+  background: #292451;
+
+}
+.back {
+    background: #4f0652;
+    transform: rotateY(180deg);
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+.backflip {
+    transform: rotateY(360deg);
+}
+
+.icon-arrow {
+    position: absolute;
+    width: 26px;
+    top: 184px;
+    right: 42px;
+}
+
+.icon-arrow:hover {
+    cursor: pointer;
+    transform: rotate(0.2turn);
+    transition: all 0.5s ease-out;
+}
+
+.paly {
+    color: rgb(41, 36, 36)
+}
+
+.main-content-play {
+    display: flex;
+    width: 100%;
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content-indicator {
+    display: flex;
+    overflow: hidden;
+    width: 315px;
+    height: 50px;
+}
+
+.main-content-indicator img {
+    min-width: 45px;
+}
+
+.styleBg {
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.styleBgPlay {
+ background-color: #6f0522;
+}
+
+.styleBgDisable {
+    background-color: #2f2d2d;
+   }
+
+/* =========== BUTTON =========== */
+
+.main-content-button {
+    display: none;
+    margin: 8px;
+    margin-bottom: 18px;
+}
+
+.active {
+    display: block;
+}
+
+.disable{
+    background: gray;
+}
+
+.btn {
+    width: 130px;
+    height: 50px;
+    font-size: 1.2rem;
+    font-family: Nerko One;
+    font-size: larger; 
+}
+
+
+
+
+/* =========== TABLE =========== */
+
+.table-statistic {
+    width: 500px;
+    height: 1000px;
+    border: 4px solid black;
+    border-collapse: collapse;
+    margin-bottom: 80px;
+}
+
+td, th {
+    border: 2px solid black;
+    text-align: center; 
+}
+
+.main-content-table {
+    position: relative;
+}
+
+.btn-statistic{
+    position: absolute;
+    bottom: 15px;
+}
+
+.btn3 {
+}
+
+/* =========== FOOTER =========== */
+footer {
+    color: seashell;
+}
+
+footer.wrapper {
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.card-foo {
+    margin: 20px;
+    
+}
+
+.imgRS {
+    width: 110px;
+    margin-left: 90px;
+}
+
+/* =========== SPECIAL =========== */
+
+.hide {
+    display: none;
+}
+
+.lock {
+    z-index: 1;
+    overflow: hidden; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background: rgba(41, 41, 41, 0.4);
+}
+
+.end-game {
+    display: flex;
+    color: #efe8e8;
+    font-family: 'Nerko One';
+    align-items: center;
+    flex-direction: column;
+}
+
+.bg-none {
+    background: none;
+}
+
+
+
+
+@media (max-width: 730px) {
+    .logo {
+        font-size: 2rem;
+    }
+    .main-content-indicator {
+        width: 270px;
+    }
+    .header-menu {
+        width: 70%;
+    }
+    .table-statistic {
+        font-size: 0.8rem;
+        width: 80%;
+        
+    }
+    .end-game img {
+        width: 70%;
+    }
+    .card-foo {
+        margin: 15px;
+    }
+    .imgRS {
+        width: 90px;
+        margin-left: 50px;
+    }
+    footer.wrapper {
+        justify-content: center;
+        font-size: 0.7rem;
+    }
+    footer h5 {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo {
+        display: none;
+    }
+
+    .wrapper {
+        justify-content: space-between;
+    }
+    .header-menu {
+        width: 100%;
+    }
+    .table-statistic {
+        font-size: 0.6rem;
+        width: 80%;
+    }
+    footer.wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
